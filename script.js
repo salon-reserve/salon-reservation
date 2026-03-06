@@ -45,6 +45,22 @@ function renderReservations() {
   });
 }
 
+function checkPassword() {
+  const passwordInput = document.getElementById("admin-password");
+  if (!passwordInput) return;
+
+  const password = passwordInput.value;
+  const correctPassword = "salon123";
+
+  if (password === correctPassword) {
+    document.getElementById("login-box").style.display = "none";
+    document.getElementById("admin-content").style.display = "block";
+    renderReservations();
+  } else {
+    alert("パスワードが違います");
+  }
+}
+
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -60,7 +76,7 @@ if (form) {
       message: document.getElementById("message").value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbzH9wcYB63yinLLf7KHUvOU4910XkC29__e11qv6T_rM7bZFEF3iBtu8d0BQX4f_48q_A/exec", {
+    fetch("https://salon-reserve.github.io/salon-reservation/YOUR_EXEC_URL", {
       method: "POST",
       mode: "no-cors",
       headers: {
