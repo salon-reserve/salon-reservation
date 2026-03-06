@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>予約フォーム</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>予約フォーム</h1>
+  <p>ご希望の内容を選択してください</p>
+
+  <form id="reservation-form">
+    <label for="name">お名前</label>
+    <input type="text" id="name" name="name" placeholder="山田 花子" required />
+
+    <label for="phone">電話番号</label>
+    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required />
+
+    <label for="email">メールアドレス</label>
+    <input type="email" id="email" name="email" placeholder="example@email.com" />
+
+    <label for="menu">メニュー</label>
+    <select id="menu" name="menu" required>
+      <option value="">選んでください</option>
+
+      <optgroup label="通常メニュー">
+        <option value="レディースカット">✂️ レディースカット</option>
+        <option value="メンズカット">✂️ メンズカット</option>
+        <option value="カラーのみ">🎨 カラーのみ</option>
+        <option value="カット＋カラー">🎨 カット＋カラー</option>
+        <option value="トリートメント">✨ トリートメント</option>
+        <option value="縮毛矯正">🌀 縮毛矯正</option>
+      </optgroup>
+
+      <optgroup label="新規限定">
+        <option value="【新規限定】カット＋髪質改善">🌸 【新規限定】カット＋髪質改善</option>
+        <option value="【新規限定】カット＋全体カラー＋髪質改善">🌸 【新規限定】カット＋全体カラー＋髪質改善</option>
+        <option value="【新規限定】カット＋縮毛矯正＋髪質改善TR">🌸 【新規限定】カット＋縮毛矯正＋髪質改善TR</option>
+      </optgroup>
+
+      <optgroup label="再来客">
+        <option value="【3回目まで限定】カット＋全体カラー＋髪質改善トリートメント">💎 【3回目まで限定】カット＋全体カラー＋髪質改善トリートメント</option>
+        <option value="【3回目まで限定】カット＋髪質改善トリートメント">💎 【3回目まで限定】カット＋髪質改善トリートメント</option>
+        <option value="【3回目まで限定】全体カラー＋髪質改善トリートメント">💎 【3回目まで限定】全体カラー＋髪質改善トリートメント</option>
+      </optgroup>
+
+      <optgroup label="メンズ">
+        <option value="【メンズ限定】カット＋プチ炭酸ヘッドスパ">🧴 【メンズ限定】カット＋プチ炭酸ヘッドスパ</option>
+        <option value="【メンズ限定】カット＋パーマ＋炭酸シャンプー">🧴 【メンズ限定】カット＋パーマ＋炭酸シャンプー</option>
+        <option value="【メンズ限定】カット＋縮毛矯正＋髪質改善2ステップ">🧴 【メンズ限定】カット＋縮毛矯正＋髪質改善2ステップ</option>
+      </optgroup>
+    </select>
+
+    <div class="menu-note">
+      ※ 予約後に内容確認のご連絡を差し上げます。<br>
+      ※ クーポン・メニュー内容は確認後に調整する場合があります。
+    </div>
+
+    <label for="date">希望日</label>
+    <input type="date" id="date" name="date" required />
+
+    <label for="time">希望時間</label>
+    <input type="time" id="time" name="time" required />
+
+    <label for="stylist">スタイリスト</label>
+    <select id="stylist" name="stylist" required>
+      <option value="">選んでください</option>
+      <option value="Kazu">👤 Kazu</option>
+      <option value="Masa">👤 Masa</option>
+      <option value="指名なし">👤 指名なし</option>
+    </select>
+
+    <label for="message">備考・ご要望</label>
+    <textarea id="message" name="message" rows="4" placeholder="髪のお悩みやご希望があればご記入ください"></textarea>
+
+    <button type="submit">予約を送信する</button>
+  </form>
+
+  <p><a href="index.html">トップへ戻る</a></p>
+
+  <script src="script.js"></script>
+</body>
+</html>

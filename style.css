@@ -1,0 +1,160 @@
+body {
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: linear-gradient(to bottom right, #fff7fb, #fff, #ffeef6);
+  color: #333;
+  margin: 0;
+  padding: 24px;
+  text-align: center;
+}
+
+h1 {
+  color: #e86aa8;
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+h2 {
+  color: #444;
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+form,
+.admin-box {
+  max-width: 640px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(232, 106, 168, 0.12);
+  border: 1px solid #f7d7e8;
+}
+
+label {
+  display: block;
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid #e8d9e2;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e86aa8;
+  box-shadow: 0 0 0 3px rgba(232, 106, 168, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+button {
+  background: linear-gradient(to right, #ec77b0, #e86aa8);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(232, 106, 168, 0.18);
+}
+
+a {
+  color: #e86aa8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.top-card {
+  max-width: 640px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 36px 24px;
+  box-shadow: 0 10px 30px rgba(232, 106, 168, 0.12);
+  border: 1px solid #f7d7e8;
+}
+
+.top-card p {
+  margin-bottom: 28px;
+}
+
+.admin-box ul {
+  padding: 0;
+  margin: 0;
+}
+
+.admin-box li {
+  list-style: none;
+  text-align: left;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #f0e4ea;
+  border-radius: 14px;
+  background: #fffafc;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  form,
+  .admin-box,
+  .top-card {
+    padding: 20px 16px;
+  }
+}
+
+.menu-note {
+  max-width: 420px;
+  margin: -4px auto 18px;
+  padding: 12px 14px;
+  background: #fff5fa;
+  border: 1px solid #f4d7e5;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #7a5a68;
+}
+
+optgroup {
+  font-style: normal;
+  font-weight: bold;
+  color: #a14d79;
+}
