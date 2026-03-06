@@ -7,18 +7,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>予約管理画面</h1>
-  <p>予約一覧をここで確認します。</p>
+  <h1>管理画面</h1>
+
+<div id="login-box">
+  <p>管理者パスワードを入力してください</p>
+  <input type="password" id="admin-password" placeholder="パスワード">
+  <button onclick="checkPassword()">ログイン</button>
+</div>
+
+<div id="admin-content" style="display:none;">
 
   <div class="admin-box">
-    <h2>現在の予約</h2>
+    <h2>予約一覧</h2>
     <ul id="admin-booking-list">
       <li>まだ予約はありません</li>
     </ul>
   </div>
 
-  <p><a href="index.html">トップへ戻る</a></p>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
