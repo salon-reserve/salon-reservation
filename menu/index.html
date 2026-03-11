@@ -1,1 +1,947 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salju Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: linear-gradient(to bottom, #fffafc, #fff);
+      color: #4a3f46;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-image {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 28px 18px 40px;
+    }
+
+    .shop-name {
+      text-align: center;
+      font-size: 32px;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+      color: #7b4b61;
+      font-weight: 700;
+    }
+
+    .sub-text {
+      text-align: center;
+      font-size: 14px;
+      color: #9a7d89;
+      margin: 0 0 22px;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 0 24px;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #7b4b61;
+      background: #fff4f8;
+      border: 1px solid #f1dfe6;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .notice {
+      margin-bottom: 22px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff7fa;
+      border: 1px solid #f2dee6;
+      color: #7a6770;
+      font-size: 13px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+      background: #fffdfd;
+      border: 1px solid #f1dfe6;
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 6px 18px rgba(123, 75, 97, 0.06);
+    }
+
+    .section-title {
+      font-size: 21px;
+      color: #7b4b61;
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f3dfe7;
+      font-weight: 700;
+    }
+
+    .menu-item {
+      padding: 12px 0;
+      border-bottom: 1px dashed #ead6de;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .menu-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #4d4047;
+      flex: 1;
+    }
+
+    .menu-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #7b4b61;
+      white-space: nowrap;
+    }
+
+    .menu-time {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #9a8a91;
+    }
+
+    .coupon-card {
+      padding: 16px;
+      border: 1px solid #f1dfe6;
+      border-radius: 16px;
+      background: #fffafb;
+      margin-bottom: 16px;
+    }
+
+    .coupon-badge-wrap {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .coupon-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fcecf2;
+      color: #7b4b61;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid #f2d8e3;
+    }
+
+    .coupon-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4d4047;
+      margin-bottom: 8px;
+    }
+
+    .coupon-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: #7b4b61;
+      margin-bottom: 10px;
+    }
+
+    .coupon-desc {
+      font-size: 14px;
+      color: #6f6168;
+      margin-bottom: 12px;
+    }
+
+    .coupon-meta {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: #8a7b82;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 12px;
+      color: #aa97a0;
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 22px 14px 32px;
+      }
+
+      .shop-name {
+        font-size: 27px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .menu-name,
+      .menu-price {
+        font-size: 14px;
+      }
+
+      .coupon-title {
+        font-size: 15px;
+      }
+
+      .coupon-price {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="menu.jpg" alt="Salju メニュー画像" class="hero-image" />
+
+    <div class="content">
+      <h1 class="shop-name">Salju</h1>
+      <p class="sub-text">Menu & Coupon List</p>
+
+      <div class="top-nav">
+        <a href="#menu-list">通常メニュー</a>
+        <a href="#coupon-list">おすすめクーポン</a>
+      </div>
+
+      <div class="notice">
+        ※ ご予約ページは現在準備中です。<br />
+        ご予約はメニューをご確認の上、
+        InstagramのDMにてご連絡くださいませ。<br />
+        現在はメニュー・クーポン一覧のみご確認いただけます
+      </div>
+
+      <section class="section" id="menu-list">
+        <h2 class="section-title">カット</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">レディースカット【津田沼】</div>
+            <div class="menu-price">¥5,500</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">メンズカット【津田沼】</div>
+            <div class="menu-price">¥4,950</div>
+          </div>
+          <div class="menu-time">60分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">Jr.カット（6歳～18歳まで）【津田沼】</div>
+            <div class="menu-price">¥3,850</div>
+          </div>
+          <div class="menu-time">60分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">バングカット【津田沼】</div>
+            <div class="menu-price">¥1,100</div>
+          </div>
+          <div class="menu-time">10分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">カラー</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">リタッチカラー(リタッチは根本3cm以内)【津田沼】</div>
+            <div class="menu-price">¥5,500</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">カラーショート(ショートは肩上以内)【津田沼】</div>
+            <div class="menu-price">¥6,600</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">カラーセミロング(セミロングは胸上以内)【津田沼】</div>
+            <div class="menu-price">¥7,700</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">カラーロング(ロングは胸下以上)【津田沼】</div>
+            <div class="menu-price">¥9,900</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ブリーチリタッチ(リタッチは根本3cm以内)【津田沼】</div>
+            <div class="menu-price">¥6,600</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ブリーチショート(ショートは肩上以内)【津田沼】</div>
+            <div class="menu-price">¥8,800</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ブリーチセミロング(セミロングは胸上以内)【津田沼】</div>
+            <div class="menu-price">¥11,000</div>
+          </div>
+          <div class="menu-time">150分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ブリーチロング(ロングは胸下以上)【津田沼】</div>
+            <div class="menu-price">¥13,200</div>
+          </div>
+          <div class="menu-time">180分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ハイライト(ブリーチ有) ※デザインに応じて価格変動【津田沼】</div>
+            <div class="menu-price">¥5,500〜</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ハイライト(ブリーチなし) ※デザインに応じて価格変動【津田沼】</div>
+            <div class="menu-price">¥3,300〜</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">パーマ</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">スタンダードパーマ【津田沼】</div>
+            <div class="menu-price">¥6,600</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">スパイラルパーマ【津田沼】</div>
+            <div class="menu-price">¥8,800</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ツイストパーマ【津田沼】</div>
+            <div class="menu-price">¥13,200</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">縮毛矯正</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">顔回り縮毛矯正【津田沼】</div>
+            <div class="menu-price">¥5,500</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">リタッチ縮毛矯正(リタッチは根本3cm以内)【津田沼】</div>
+            <div class="menu-price">¥9,900</div>
+          </div>
+          <div class="menu-time">150分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ショート縮毛矯正(ショートは肩上以内)【津田沼】</div>
+            <div class="menu-price">¥13,200</div>
+          </div>
+          <div class="menu-time">180分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">セミロング縮毛矯正(セミロングは胸上以内)【津田沼】</div>
+            <div class="menu-price">¥16,500</div>
+          </div>
+          <div class="menu-time">180分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ロング縮毛矯正(ロングは胸下以上)【津田沼】</div>
+            <div class="menu-price">¥19,800</div>
+          </div>
+          <div class="menu-time">210分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ストレートトリートメント ショート(ショートは肩上以内)【津田沼】</div>
+            <div class="menu-price">¥7,700</div>
+          </div>
+          <div class="menu-time">60分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ストレートトリートメント セミロング(セミロングは胸上以内)【津田沼】</div>
+            <div class="menu-price">¥9,900</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">ストレートトリートメント ロング(ロングは胸下以上)【津田沼】</div>
+            <div class="menu-price">¥12,100</div>
+          </div>
+          <div class="menu-time">120分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">トリートメント</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">髪質改善酸熱トリートメント(シャンプー込み)【津田沼】</div>
+            <div class="menu-price">¥14,300</div>
+          </div>
+          <div class="menu-time">90分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">髪質改善5ステップトリートメント(シャンプー込み)【津田沼】</div>
+            <div class="menu-price">¥5,500</div>
+          </div>
+          <div class="menu-time">60分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">ヘッドスパ</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">プチヘッドスパ【津田沼】</div>
+            <div class="menu-price">¥2,200</div>
+          </div>
+          <div class="menu-time">30分</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">その他メニュー</h2>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">シャンプー【津田沼】</div>
+            <div class="menu-price">¥1,650</div>
+          </div>
+          <div class="menu-time">10分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">スタイリング【津田沼】</div>
+            <div class="menu-price">¥1,650</div>
+          </div>
+          <div class="menu-time">10分</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-top">
+            <div class="menu-name">眉カット【津田沼】</div>
+            <div class="menu-price">¥1,100</div>
+          </div>
+          <div class="menu-time">10分</div>
+        </div>
+      </section>
+
+      <section class="section" id="coupon-list">
+        <h2 class="section-title">おすすめクーポン</h2>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+            <span class="coupon-badge">学割U24</span>
+          </div>
+          <div class="coupon-title">カット＋カラー＋髪質改善2ステップTR【津田沼】</div>
+          <div class="coupon-price">¥10,780</div>
+          <div class="coupon-desc">
+            24歳以下限定のお得なクーポン。ロング料金なし。イルミナカラー変更は＋¥2,200、髪質改善5ステップ変更は＋¥3,300。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+            <span class="coupon-badge">学割U24</span>
+            <span class="coupon-badge">Kazu限定</span>
+          </div>
+          <div class="coupon-title">カット＋髪質改善2ステップTR【津田沼】</div>
+          <div class="coupon-price">¥4,620</div>
+          <div class="coupon-desc">
+            当日限定のお得メニュー。髪質改善5ステップトリートメント変更は＋¥3,300。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間</div>
+            <div>来店条件：10時〜19時</div>
+            <div>対象スタイリスト：Kazu</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+          </div>
+          <div class="coupon-title">カット＋髪質改善【津田沼】</div>
+          <div class="coupon-price">¥6,600</div>
+          <div class="coupon-desc">
+            新規様限定。通常価格の40％OFFで利用可能。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間30分</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+          </div>
+          <div class="coupon-title">カット＋全体カラー＋髪質改善【津田沼】</div>
+          <div class="coupon-price">¥11,220</div>
+          <div class="coupon-desc">
+            新規限定。通常料金から40％以上OFF。ロング料金なし。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+          </div>
+          <div class="coupon-title">全体カラー＋髪質改善トリートメント【津田沼】</div>
+          <div class="coupon-price">¥9,240</div>
+          <div class="coupon-desc">
+            新規様限定。通常料金から30％OFF。イルミナカラー変更は＋¥2,200。ロング料金なし。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">人気</span>
+          </div>
+          <div class="coupon-title">カット＋イルミナカラー＋髪質改善TR【津田沼】</div>
+          <div class="coupon-price">¥14,630</div>
+          <div class="coupon-desc">
+            3回まで限定。通常料金から30％OFF。ロング料金なし。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+          </div>
+          <div class="coupon-title">リタッチカラー＋髪質改善トリートメント【津田沼】</div>
+          <div class="coupon-price">¥7,700</div>
+          <div class="coupon-desc">
+            新規限定。通常料金から30％OFF。リタッチは根本3cm以内。イルミナカラー変更は＋¥2,200。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+          </div>
+          <div class="coupon-title">カット＋全体カラー【津田沼】</div>
+          <div class="coupon-price">¥13,200</div>
+          <div class="coupon-desc">
+            全員対象のお得クーポン。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用可能</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+          </div>
+          <div class="coupon-title">イルミナ全体カラー【シャンプーブロー込み】</div>
+          <div class="coupon-price">¥9,900</div>
+          <div class="coupon-desc">
+            全員様向けのお得クーポン。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">縮毛矯正</span>
+          </div>
+          <div class="coupon-title">カット＋縮毛矯正＋髪質改善トリートメント【津田沼】</div>
+          <div class="coupon-price">¥19,250</div>
+          <div class="coupon-desc">
+            新規限定。通常料金から30％OFF。ロング料金なし。全体縮毛矯正のクーポン。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：3時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">フルメニュー</span>
+          </div>
+          <div class="coupon-title">カット＋全体カラー＋縮毛矯正＋髪質改善トリートメント【津田沼】</div>
+          <div class="coupon-price">¥24,640</div>
+          <div class="coupon-desc">
+            新規限定。通常料金から30％OFF。イルミナカラー変更は＋¥2,200、ロング料金なし。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：4時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+            <span class="coupon-badge">masashi限定</span>
+          </div>
+          <div class="coupon-title">カット＆ストレート髪質改善酸熱トリートメント【津田沼】</div>
+          <div class="coupon-price">¥18,700</div>
+          <div class="coupon-desc">
+            高級酸熱トリートメント。薬剤を使わず、熱反応で内部に栄養浸透。艶のある柔らかな髪質へ。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間30分</div>
+            <div>対象スタイリスト：masashi</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+            <span class="coupon-badge">エクステ</span>
+            <span class="coupon-badge">masashi限定</span>
+          </div>
+          <div class="coupon-title">カット＋全体カラー＋レミー毛シールエクステ60枚【津田沼】</div>
+          <div class="coupon-price">¥26,840</div>
+          <div class="coupon-desc">
+            なじましカット付き。ハイトーンエクステは＋¥1,100。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：3時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：masashi</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">全員</span>
+            <span class="coupon-badge">エクステ</span>
+            <span class="coupon-badge">masashi限定</span>
+          </div>
+          <div class="coupon-title">レミー毛最高級シールエクステ＋なじましカット付 60枚【津田沼】</div>
+          <div class="coupon-price">¥20,460</div>
+          <div class="coupon-desc">
+            80枚 ¥26,400 / 60枚 ¥20,460 / 40枚 ¥14,300。ハイトーンエクステは＋¥1,100。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：masashi</div>
+            <div>その他条件：クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+            <span class="coupon-badge">Kazu限定</span>
+          </div>
+          <div class="coupon-title">当日限定 メンズカット【津田沼】</div>
+          <div class="coupon-price">¥3,300</div>
+          <div class="coupon-desc">
+            当日限定メニュー。シャンプーは＋¥660で施術可能。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：30分</div>
+            <div>来店条件：10時〜19時</div>
+            <div>対象スタイリスト：Kazu</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">メンズカット【津田沼】</div>
+          <div class="coupon-price">¥4,455</div>
+          <div class="coupon-desc">
+            通常料金から10％OFF。シャンプー、スタイリング込み。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間</div>
+            <div>来店条件：10時〜20時</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：男性限定・クーポン併用可能</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">メンズカット＋炭酸シャンプー＋眉カット＋スタイリングセット【津田沼】</div>
+          <div class="coupon-price">¥5,005</div>
+          <div class="coupon-desc">
+            炭酸シャンプー・眉カット・スタイリング付きのメンズ向けセット。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間</div>
+            <div>来店条件：10時〜20時</div>
+            <div>対象スタイリスト：全員</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">カット＋カラー＋炭酸シャンプー【津田沼】</div>
+          <div class="coupon-price">¥12,375</div>
+          <div class="coupon-desc">
+            メンズ限定。イルミナカラー変更は＋¥2,200。髪質改善5ステップは＋¥3,300。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：男性限定・クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">カット＋縮毛矯正＋髪質改善2ステップ【津田沼】</div>
+          <div class="coupon-price">¥18,315</div>
+          <div class="coupon-desc">
+            メンズ限定。髪質改善5ステップ変更は＋¥3,300。全体縮毛矯正のクーポン。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：3時間30分</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：男性限定・クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+            <span class="coupon-badge">Kazu限定</span>
+          </div>
+          <div class="coupon-title">カット＋プチ炭酸ヘッドスパ【津田沼】</div>
+          <div class="coupon-price">¥6,435</div>
+          <div class="coupon-desc">
+            20分のプチ炭酸ヘッドスパ付き。リラックスしたい方におすすめ。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：1時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：Kazu</div>
+            <div>その他条件：男性限定・他クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">カット＋パーマ＋炭酸シャンプー【津田沼】</div>
+          <div class="coupon-price">¥12,375</div>
+          <div class="coupon-desc">
+            メンズ限定。髪質改善5ステップは＋¥3,300。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：男性限定・クーポン併用不可</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+          </div>
+          <div class="coupon-title">メンズカット＋フェザーパーマ/シャドウパーマ＋髪質改善【津田沼】</div>
+          <div class="coupon-price">¥15,125</div>
+          <div class="coupon-desc">
+            今話題のフェザーパーマ・シャドウパーマ向け。シャンプー、トリートメント、ドライ、スタイリング込み。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：2時間</div>
+            <div>対象スタイリスト：全員</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-badge-wrap">
+            <span class="coupon-badge">新規</span>
+            <span class="coupon-badge">メンズ</span>
+            <span class="coupon-badge">ハイトーン</span>
+          </div>
+          <div class="coupon-title">カット＋ブリーチ込みダブルカラー＋髪質改善【津田沼】</div>
+          <div class="coupon-price">¥23,265</div>
+          <div class="coupon-desc">
+            メンズ限定。ケアブリーチ使用。ハイトーンカラー希望の方におすすめ。イルミナカラー変更は＋¥2,200。
+          </div>
+          <div class="coupon-meta">
+            <div>施術目安：3時間</div>
+            <div>来店条件：10時以降</div>
+            <div>対象スタイリスト：全員</div>
+            <div>その他条件：男性限定・クーポン併用不可</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="notice">
+        ※ クーポンは一部を見やすく掲載しています。<br />
+        今後、予約ページ公開時に最新内容へ順次反映予定です。
+      </div>
+
+      <div class="footer">
+        © Salju
+      </div>
+    </div>
+  </div>
+</body>
+</html>
